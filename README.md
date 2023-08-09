@@ -22,7 +22,7 @@ Ansible is,
 
 **Control node** - Ansible is installed and run from the control node and will contain copied of your project files including playbooks. It can be workstation or a dedicated server in the environment.
 
-**Note:** Ansible control node can be a Linux Machine only
+*Note:* Ansible control node can be a Linux Machine only
 
 **Managed hosts** - these are listed servers or nodes in the inventory - defined as static or via dynamic inventory scripts - on which Ansible commands or playbook tasks need to be executed.
 
