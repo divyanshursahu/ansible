@@ -34,3 +34,4 @@ cerdentials.tfvars
 .terraformrc
 terraform.rc
 .terraform.lock.hcl
+.DS*
