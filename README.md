@@ -26,6 +26,9 @@ Ansible is,
 
 **Managed hosts** - these are listed servers or nodes in the inventory - defined as static or via dynamic inventory scripts - on which Ansible commands or playbook tasks need to be executed.
 
+**Ansible Inventory**
+Inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate. The file can be in one of many formats depending on your Ansible environment and plugins. The default inventory located at /etc/ansible/hosts
+
 **Playbook** - Plays are ordered set of tasks to execute againt host selections from your inventory. A playbook is a file containing one or more plays. Playbooks are the files where the Ansible code is written. Playbooks are written in YAML format. YAML means "Yet Another Markup Language,".
 
 **Tasks** - Task run a **module** with arguments to accomplish the required state or action.
@@ -34,11 +37,19 @@ Tasks --> Plays --> Playbook
 
 **Ansible Tower** - is an enterprise framework by Redhat, to manage, control and secure your ansible environment.
 
-
-### What is Ansible Inventory
-Inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate. The file can be in one of many formats depending on your Ansible environment and plugins. The default inventory located at /etc/ansible/hosts
-
-### What is Ansible Config file
+**Ansible Config file**
 The file that governs the behavior of all interactions performed by the control node. In Ansible’s case that default configuration file is (ansible.cfg) located in /etc/ansible/ansible.cfg. 
 
-Ansible uses the python module, python script to connect to the target machine. It dumps the python script and execute there and return the output.
+Ansible program is fully depends on the the ansible configuration file which can be stored in multiple locations depends on your project preference. You can store your **ansible.cfg** at below locations and see the preference order. (top item has the most priority)
+
+$ANSIBLE_CONFIG – Environment variable
+./ansible.cfg – cfg file in current directory
+~/.ansible.cfg – home directory
+/etc/ansible/ansible.cfg – default cfg
+
+As you can see above, ansible will search for the $ANSIBLE_CONFIG variable and load that config if available. If not set, program will try to load config from current working directory, then from our home directory and if all those not available, ansible load config file from default location – /etc/ansible/ansible.cfg.
+
+### Inventory file example:
+```
+db_and_web_server ansible_connection=ssh ansible_ssh_pass=Passw0rd ansible_host=192.168.1.14
+```
