@@ -15,3 +15,6 @@ Ansible is,
 
 
 ### How Ansible Works
+
+![image](https://github.com/divyanshursahu/ansible/assets/96013623/f50ada23-0723-44a3-93e9-4463dbc48702)
+
