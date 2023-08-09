@@ -18,3 +18,18 @@ Ansible is,
 
 ![image](https://github.com/divyanshursahu/ansible/assets/96013623/f50ada23-0723-44a3-93e9-4463dbc48702)
 
+### Ansible Concept and Architecture
+
+**Control node** - Ansible is installed and run from the control node and will contain copied of your project files including playbooks. It can be workstation or a dedicated server in the environment.
+
+**Note:** Ansible control node can be a Linux Machine only
+
+**Managed hosts** - these are listed servers or nodes in the inventory - defined as static or via dynamic inventory scripts - on which Ansible commands or playbook tasks need to be executed.
+
+**Playbook** - Plays are ordered set of tasks to execute againt host selections from your inventory. A playbook is a file containing one or more plays.
+
+**Tasks** - Task run a **module** with arguments to accomplish the required state or action.
+
+Tasks --> Plays --> Playbook
+
+**Ansible Tower** - is an enterprise framework by Redhat, to manage, control and secure your ansible environment.
