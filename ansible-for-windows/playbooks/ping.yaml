@@ -1,0 +1,6 @@
+---
+ - name: Hello World
+   hosts: webserver
+   tasks:
+     name: Ping the server
+     ping:
