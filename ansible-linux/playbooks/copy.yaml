@@ -1,0 +1,7 @@
+---
+- name: Sample playbook 
+  hosts: hostfile
+  tasks:
+    - name: ping windows vm
+      win_ping:
+        

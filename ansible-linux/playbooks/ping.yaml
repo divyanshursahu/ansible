@@ -1,0 +1,6 @@
+---
+- name: Ping
+  hosts: enter hostfile
+  tasks:
+    - name: Ping
+      ping:
