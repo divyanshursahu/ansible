@@ -1,7 +1,7 @@
 variable "resource_group_name" {
 }
 
-variable "pub_ip_location" {
+variable "location" {
   default = "southindia"
 }
 

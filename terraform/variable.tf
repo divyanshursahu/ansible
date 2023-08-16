@@ -24,3 +24,19 @@ variable "vnet-name" {
 variable "pub_ip_name" {
 
 }
+
+variable "nic-name" {
+
+}
+
+variable "vm-size" {
+  default = "Standard_B1s"
+}
+
+variable "admin_username" {
+
+}
+
+variable "admin_password" {
+
+}
