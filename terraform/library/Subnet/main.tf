@@ -4,3 +4,4 @@ resource "azurerm_subnet" "win-subnet" {
   virtual_network_name = var.vnet-name
   resource_group_name = var.resource_group_name
 }
+

@@ -49,12 +49,21 @@ module "subnet" {
   depends_on = [azurerm_resource_group.rg, module.virtual-network]
 }
 
+
 module "pub-ip" {
   source = "./library/Public-IP"
 
   resource_group_name = var.resource_group_name
   pub_ip_name         = var.pub_ip_name
 
+  depends_on = [azurerm_resource_group.rg]
+}
+
+module "nsg" {
+  source = "./library/nsg"
+  nsg-name = "win-nsg"
+  resource_group_name = var.resource_group_name
+  
   depends_on = [azurerm_resource_group.rg]
 }
 
@@ -71,5 +80,11 @@ module "win-vm" {
 
 }
 
+resource "azurerm_subnet_network_security_group_association" "name" {
+  subnet_id = module.subnet.subnet_id
+  network_security_group_id = module.nsg.nsg-id
+
+  depends_on = [ azurerm_resource_group.rg, module.subnet ]
+}
 
 

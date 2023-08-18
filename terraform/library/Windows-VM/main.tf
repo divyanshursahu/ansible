@@ -11,6 +11,7 @@ resource "azurerm_network_interface" "vm-nic" {
   }
 }
 
+
 resource "azurerm_windows_virtual_machine" "win-vm" {
   name = var.vm-name
   resource_group_name = var.resource_group_name
@@ -33,4 +34,13 @@ resource "azurerm_windows_virtual_machine" "win-vm" {
      sku       = "2016-Datacenter"
      version   = "latest"
    }
+
+  #  provisioner "remote-exec" {
+  #    inline = [ 
+      
+  #     ]
+  #    connection {
+       
+  #    }
+  #  }
 }
