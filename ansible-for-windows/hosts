@@ -1,5 +1,5 @@
 [winserver]
-20.219.105.27
+20.219.109.52
 
 [winserver:vars]
 ansible_user=azuser
