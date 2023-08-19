@@ -87,4 +87,20 @@ resource "azurerm_subnet_network_security_group_association" "name" {
   depends_on = [azurerm_resource_group.rg, module.subnet]
 }
 
+resource "azurerm_virtual_machine_extension" "name" {
+  name                 = "win-machine"
+  virtual_machine_id   = module.win-vm.win-vm-id
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.10"
 
+  settings = <<SETTINGS
+ {
+  "commandToExecute": "powershell.exe script.ps1"
+ }
+SETTINGS
+
+# protected_settings = <<PROTECTED_SETTINGS
+#     {}
+# PROTECTED_SETTINGS
+}
