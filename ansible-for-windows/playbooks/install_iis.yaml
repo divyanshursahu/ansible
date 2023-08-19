@@ -1,8 +1,10 @@
 ---
 - name: Install IIS on windows servers
-  hosts: host
+  hosts: winserver
   tasks:
     - name: Install IIS (Web-Server only)
       ansible.windows.win_feature:
-        name: Web-Server  
-      
+        name:
+        - Web-Server
+        - Web-Common-Http
+        state: present  

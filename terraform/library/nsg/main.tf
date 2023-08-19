@@ -11,7 +11,23 @@ resource "azurerm_network_security_rule" "name" {
   access = "Allow"
   protocol = "Tcp"
   source_port_range = "*"
-  destination_port_range = "*"
+  destination_port_range = "3389"
+  source_address_prefix = "*"
+  destination_address_prefix = "*"
+  network_security_group_name = var.nsg-name
+  resource_group_name = var.resource_group_name
+  
+  depends_on = [ azurerm_network_security_group.nsg ]
+}
+
+resource "azurerm_network_security_rule" "name2" {
+  name = "Rule2"
+  priority = 102
+  direction = "Inbound"
+  access = "Allow"
+  protocol = "Tcp"
+  source_port_range = "*"
+  destination_port_range = "5985"
   source_address_prefix = "*"
   destination_address_prefix = "*"
   network_security_group_name = var.nsg-name

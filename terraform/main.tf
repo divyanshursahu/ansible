@@ -87,20 +87,21 @@ resource "azurerm_subnet_network_security_group_association" "name" {
   depends_on = [azurerm_resource_group.rg, module.subnet]
 }
 
-resource "azurerm_virtual_machine_extension" "name" {
-  name                 = "win-machine"
-  virtual_machine_id   = module.win-vm.win-vm-id
-  publisher            = "Microsoft.Compute"
-  type                 = "CustomScriptExtension"
-  type_handler_version = "1.10"
+# resource "azurerm_virtual_machine_extension" "name" {
+#   name                 = "win-machine"
+#   virtual_machine_id   = module.win-vm.win-vm-id
+#   publisher            = "Microsoft.Compute"
+#   type                 = "CustomScriptExtension"
+#   type_handler_version = "1.10"
 
-  settings = <<SETTINGS
- {
-  "commandToExecute": "powershell.exe script.ps1"
- }
-SETTINGS
+#   settings = <<SETTINGS
+#  {
+#   "fileUris": ["https://raw.githubusercontent.com/divyanshursahu/ansible/develop/terraform/script.ps1"],
+#   "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File script.ps1"
+#  }
+# SETTINGS
 
-# protected_settings = <<PROTECTED_SETTINGS
-#     {}
-# PROTECTED_SETTINGS
-}
+# # protected_settings = <<PROTECTED_SETTINGS
+# #     {}
+# # PROTECTED_SETTINGS
+# }
