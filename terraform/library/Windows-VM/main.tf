@@ -31,6 +31,8 @@ resource "azurerm_windows_virtual_machine" "win-vm" {
     azurerm_network_interface.vm-nic.id,
   ]
 
+  custom_data = filebase64("script.ps1")
+
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
